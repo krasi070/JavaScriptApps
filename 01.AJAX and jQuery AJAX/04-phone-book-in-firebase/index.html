@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phone Book</title>
+    <script src="../jquery-3.1.1.min.js"></script>
+    <script src="phone-book-functions.js"></script>
+</head>
+<body>
+    <h1>Phone Book</h1>
+    <ul id="phonebook"></ul>
+    <button id="btnLoad">Load</button>
+
+    <h2>Create Contact</h2>
+    Person: <input type="text" id="person" />
+    <br>
+    Phone: <input type="text" id="phone" />
+    <br>
+    <button id="btnCreate">Create</button>
+    <script>
+        $(function () {
+            phoneBook();
+        });
+    </script>
+</body>
+</html>
