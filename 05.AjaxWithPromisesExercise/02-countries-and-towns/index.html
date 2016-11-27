@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Countries & Towns</title>
+    <style>
+        .action {
+            margin: 2px;
+        }
+    </style>
+    <script src="../jquery-3.1.1.min.js"></script>
+    <script src="Country.js"></script>
+    <script src="Town.js"></script>
+    <script src="events.js"></script>
+</head>
+<body>
+    <div id="countries">
+        <h1>Countries</h1>
+        <div>
+            <input type="text" id="new-country"/>
+            <button id="add-country-btn" onclick="addCountry()">Add</button>
+        </div>
+        <ul id="countries-list"></ul>
+    </div>
+    <div id="towns" style="display: none">
+        <h1>Towns</h1>
+        <div>
+            <input type="text" id="new-town" />
+            <button id="add-town-btn" onclick="addTown()">Add</button>
+        </div>
+        <ul id="towns-list"></ul>
+        <button id="back-btn" onclick="backToCountries()">Back</button>
+    </div>
+    <script>
+        $(function () {
+            loadCountries();
+        });
+    </script>
+</body>
+</html>
