@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List Towns</title>
+    <script src="../jquery-3.1.1.min.js"></script>
+    <script src="https://unpkg.com/react/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone"></script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<script type="text/babel">
+    listTowns('root');
+
+    function listTowns(selector) {
+        let TownForm = React.createClass({
+            listTowns: function (event) {
+                event.preventDefault();
+                let towns = $('div[data-reactroot] input[type=text]').val().split(', ');
+                let list = $('<ul>');
+                for (let town of towns) {
+                    list
+                        .append($('<li>')
+                            .text(town));
+                }
+
+                $('div[data-reactroot]')
+                    .append($(list));
+            },
+            render: function () {
+                return (
+                        <div data-reactroot>
+                            <form>
+                                <input type="text" />
+                                <input type="submit" value="Submit" onClick={this.listTowns} />
+                            </form>
+                        </div>
+                );
+            }
+        });
+
+        let component = <TownForm />;
+
+        ReactDOM.render(
+            component,
+            document.getElementById(selector)
+        );
+    }
+</script>
+</html>
