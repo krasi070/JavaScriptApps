@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Video Game Review App</title>
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <script src="jquery-3.1.1.min.js"></script>
+    <script src="scripts/app.js"></script>
+</head>
+<body>
+    <header id="menu">
+        <a href="#" id="link-home" onclick="showHomeView()">Home</a>
+        <a href="#" id="link-login" onclick="showLoginView()">Login</a>
+        <a href="#" id="link-register" onclick="showRegisterView()">Register</a>
+        <a href="#" id="link-reviews" onclick="listReviews()">Reviews</a>
+        <a href="#" id="link-write-review" onclick="showWriteReviewView()">Write Review</a>
+        <a href="#" id="link-logout" onclick="logout()">Logout</a>
+        <span id="logged-in-user"></span>
+    </header>
+
+    <main>
+        <section id="loading-box">Loading ...</section>
+        <section id="info-box">Info</section>
+        <section id="error-box">Error</section>
+
+        <section id="view-home">
+            <h1>Welcome</h1>
+            Welcome to our Video Game Review App.
+        </section>
+
+        <section id="view-login">
+            <h1>Login</h1>
+            <form id="form-login" onsubmit="login()">
+                <div>Username:</div>
+                <div><input type="text" name="username" required /></div>
+                <div>Password:</div>
+                <div><input type="password" name="password" required /></div>
+                <div><input type="submit" value="Login" /></div>
+            </form>
+        </section>
+
+        <section id="view-register">
+            <h1>Register</h1>
+            <form id="form-register" onsubmit="register()">
+                <div>Username:</div>
+                <div><input type="text" name="username" required /></div>
+                <div>Password:</div>
+                <div><input type="password" name="password" required /></div>
+                <div><input type="submit" value="Register" /></div>
+            </form>
+        </section>
+
+        <section id="view-reviews">
+            <h1>Reviews</h1>
+            <div id="reviews"></div>
+        </section>
+
+        <section id="view-write-review">
+            <h1>Write a review</h1>
+            <form id="form-write-review" onsubmit="writeReview()">
+                <div>Game:</div>
+                <div><input type="text" name="game" required /></div>
+                <div>Score:</div>
+                <div>
+                    <select name="stars">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div>Review:</div>
+                <div><textarea name="review" rows="10" required></textarea></div>
+                <div><input type="submit" value="Done" /></div>
+            </form>
+        </section>
+
+        <section id="view-edit-review">
+            <h1>Edit existing review</h1>
+            <form id="form-edit-review" onsubmit="editReview()">
+                <div><input type="hidden" name="id" required /></div>
+                <div>Game:</div>
+                <div><input type="text" name="game" required /></div>
+                <div>Score:</div>
+                <div>
+                    <select name="stars">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div>Review:</div>
+                <div><textarea name="review" rows="10" required></textarea></div>
+                <div><input type="submit" value="Edit" /></div>
+            </form>
+        </section>
+    </main>
+
+    <footer id="footer">
+        &copy; Video Game Review App - Exercise
+    </footer>
+
+    <script>
+        $(function () {
+            onStartApp();
+        });
+    </script>
+</body>
+</html>
